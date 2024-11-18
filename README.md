@@ -14,3 +14,13 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+Mission Statement:
+A storage tracker designed to improve responsible household consumption of food items.
+
+This project will require;
+- A timer program
+- A document scanning interface (for receipts)
+- A database for regional supermarket items
+- Basic encyclopedia for food items
+

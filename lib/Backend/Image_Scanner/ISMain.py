@@ -4,14 +4,20 @@
 
 # To be Added:
 # I need to find a way to directly add an image from camera, of course this should be provided through mobile features so I shall wait on that.
-# I need to consider how to extract the items and quantities from each page. I've been considering utilising Gemini free edition for this.
+# I need to consider how to extract the items and quantities from each page. I've been considering utilising Gemini free edition for this. DONE
+
+# Update:
+# I have implemented the Gemini API to list what it see's, which is super ideal! Now I need to test it while inside the free parameters of the system 
+# to meassure its accuracy.
 
 # Libraries
 import pytesseract
 from pdf2image import convert_from_path
+import google.generativeai as genai
+import os
 
 # Temporary file input for testing purposes
-file_input = 'test_image_2.pdf'
+file_input = 'grocery2-receipt.pdf'
 
 # Image to text converter (Scanner, smaller than expected)
 def scan_image(file_input):
@@ -22,8 +28,14 @@ def scan_image(file_input):
         text_dict.update({i+1: text})
     return text_dict
 
+# Gemini Setup
+api_key = os.environ['my_api_key_insert']
+genai.configure(api_key=os.environ['my_api_key_insert'])
+model = genai.GenerativeModel("gemini-1.5-flash")
+
+
 # Main
 text_dict = scan_image(file_input)
-print(text_dict)
-
+response = model.generate_content(f"Without using any other filler, please list the item and it's quantity from the following scanned receipt: {text_dict}")
+print(response.text)
 

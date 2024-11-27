@@ -33,9 +33,26 @@ api_key = os.environ['my_api_key_insert']
 genai.configure(api_key=os.environ['my_api_key_insert'])
 model = genai.GenerativeModel("gemini-1.5-flash")
 
+def dict_text_processor(text_dict):
+    text_value_list = []
+    for value in text_dict.values():
+        split_value = value.split('\n')
+        new_value = '|'.join(split_value)
+        text_value_list = text_value_list + [new_value]
+    Whole_text = ' '.join(text_value_list)
+    return Whole_text
+
+
 
 # Main
 text_dict = scan_image(file_input)
-response = model.generate_content(f"Without using any other filler, please list the item and it's quantity from the following scanned receipt: {text_dict}")
+print(text_dict)
+whole_text = dict_text_processor(text_dict)
+print(whole_text)
+prompt = f'''Without using any other filler, please list the item and it's quantity from the following scanned receipt: {whole_text}. 
+Note that "|" was used to replace the "enter" function in python. If any number of "|" is between two food items, note that the food items are seperate.
+Also note that if the food items are seperate, they don't share the same quantity or price.'''
+
+response = model.generate_content(prompt)
 print(response.text)
 

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:food_inspection/frontend/components/bottom_nav_bar.dart';
 import 'package:food_inspection/frontend/pages/tracker_page.dart';
 
 // import '../../components/bottom_navigation.dart';
@@ -100,7 +101,7 @@ class _LogInPageState extends State<LogInPage> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const TrackerPage()),
+                      MaterialPageRoute(builder: (context) => const BottomNavBar()),
                     );
                   },
                   child: const SignInButton(

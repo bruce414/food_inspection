@@ -1,13 +1,17 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_inspection/frontend/pages/login_page.dart';
 
+late List<CameraDescription> _cameras;
+
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+  const MyApp({super.key,});
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {

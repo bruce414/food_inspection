@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TrackerPage extends StatefulWidget {
@@ -10,26 +11,59 @@ class TrackerPage extends StatefulWidget {
 class _TrackerPageState extends State<TrackerPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.all(20.0),
+        child: Padding(
+          padding: EdgeInsets.all(20.0),
+          child: SingleChildScrollView(
             child: Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(top: 20.0),
+                  padding: EdgeInsets.only(top: 5.0, left: 5.0),
                   child: Text(
-                    'Current tracking list is empty',
+                    // 'Tracking...',
+                    'Today',
                     style: TextStyle(
+                      fontSize: 30.0,
                       fontWeight: FontWeight.bold,
-                      fontSize: 20.0,
                     ),
                   ),
-                ),
+                )
               ],
             ),
           ),
+          // child: Center(
+          //   child: Column(
+          //     mainAxisSize: MainAxisSize.min,
+          //     children: [
+          //       const Image(
+          //         image: AssetImage('images/empty_list.png'),
+          //       ),
+          //       const SizedBox(height: 20.0,),
+          //       GestureDetector(
+          //         onTap: (){},
+          //         child: Container(
+          //           height: 60,
+          //           width: 200,
+          //           decoration: BoxDecoration(
+          //             borderRadius: BorderRadius.circular(20.0),
+          //             color: Colors.orange,
+          //           ),
+          //           child: const Center(
+          //             child: Text(
+          //               'Start tracking',
+          //               style: TextStyle(
+          //                 color: Colors.white,
+          //                 fontWeight: FontWeight.bold,
+          //                 fontSize: 20.0,
+          //               ),
+          //             ),
+          //           ),
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // ),
         ),
       ),
     );

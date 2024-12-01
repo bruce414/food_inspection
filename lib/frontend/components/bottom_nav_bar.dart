@@ -55,6 +55,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
     return PersistentTabView(
       controller: _controller,
       tabs: _tabs(),
+      // for customized page transition
+      // animatedTabBuilder: (navBarConfig) => ,
+
+      //default page transition
       navBarBuilder: (navBarConfig) => settings.navBarBuilder(
         navBarConfig,
         NavBarDecoration(

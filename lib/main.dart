@@ -6,8 +6,8 @@ import 'package:food_inspection/frontend/pages/login_page.dart';
 late List<CameraDescription> _cameras;
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  runApp(const ProviderScope(child: MyApp()));
+  // WidgetsFlutterBinding.ensureInitialized();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-       scaffoldBackgroundColor: const Color(0xFFFFFFFF),
+        scaffoldBackgroundColor: const Color(0xFFFFFFFF),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),

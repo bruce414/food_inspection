@@ -8,6 +8,18 @@ class ContentsSearchBar extends StatefulWidget {
 }
 
 class _ContentsSearchBarState extends State<ContentsSearchBar> {
+
+  List foodItems = [
+    'rice',
+    'fish',
+    'cheese',
+    'steak',
+    'tomato',
+    'potato',
+    'apple',
+    'grapes'
+  ];
+
   @override
   Widget build(BuildContext context) {
     return SearchAnchor(
@@ -25,7 +37,7 @@ class _ContentsSearchBarState extends State<ContentsSearchBar> {
           leading: const Icon(
             Icons.search,
           ),
-          hintText: 'Search Uber Eats',
+          hintText: 'Search Recipes',
         );
       },
       suggestionsBuilder: (BuildContext context,

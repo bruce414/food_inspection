@@ -17,6 +17,7 @@ class _RecipesPageState extends State<RecipesPage> {
           child: Padding(
             padding: EdgeInsets.all(20.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
                   padding: EdgeInsets.only(top: 7.0, left: 10.0),
@@ -27,6 +28,9 @@ class _RecipesPageState extends State<RecipesPage> {
                       fontSize: 30.0,
                     ),
                   ),
+                ),
+                SizedBox(
+                  height: 10.0,
                 ),
                 ContentsSearchBar(),
               ],

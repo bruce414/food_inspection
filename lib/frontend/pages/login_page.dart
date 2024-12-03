@@ -5,7 +5,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:food_inspection/frontend/components/bottom_nav_bar.dart';
-import 'package:food_inspection/frontend/pages/tracker_page.dart';
+import 'package:food_inspection/frontend/pages/pantry_page.dart';
 
 // import '../../components/bottom_navigation.dart';
 // import 'home_page.dart';

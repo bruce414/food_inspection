@@ -6,10 +6,10 @@ import 'package:food_inspection/main.dart';
 final cameraModel = ChangeNotifierProvider<CameraNotifier>((ref) => CameraNotifier());
 
 class CameraNotifier extends ChangeNotifier {
-  late List<CameraDescription> _cameras;
-  late CameraController cameraController;
-  late CameraDescription mainCamera;
-  bool isCameraInitialized = true;
+  late List<CameraDescription>? _cameras;
+  CameraController? cameraController;
+  late CameraDescription? mainCamera;
+  bool isCameraInitialized = false;
 
   Future<void> initializeCamera() async {
     try {
@@ -17,9 +17,9 @@ class CameraNotifier extends ChangeNotifier {
       _cameras = await availableCameras();
       if (_cameras != null && _cameras!.isNotEmpty) {
         //assign the first camera of the camera list to be the main camera (or the camera we will be using)
-        mainCamera = _cameras[0];
+        mainCamera = _cameras?[0];
         //create the camera controller
-        cameraController = CameraController(mainCamera, ResolutionPreset.max);
+        cameraController = CameraController(mainCamera!, ResolutionPreset.max);
       }
       //initialize the camera controller
       await cameraController!.initialize();
@@ -31,7 +31,26 @@ class CameraNotifier extends ChangeNotifier {
       isCameraInitialized = false;
       notifyListeners();
     }
+  }
 
+  Future<void> capturePhoto() async {
+    if (cameraController == null || !cameraController!.value.isInitialized) {
+      throw Exception("Camera has not been initialized");
+    }
+    await cameraController!.takePicture();
+    notifyListeners();
+  }
+
+  void disposeCamera() {
+    cameraController?.dispose();
+    cameraController = null;
+    notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    disposeCamera();
+    super.dispose();
   }
 
 }

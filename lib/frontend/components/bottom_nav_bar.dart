@@ -30,7 +30,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       ),
     ),
     PersistentTabConfig(
-      screen: const CameraPage(),
+      screen: const Placeholder(),
       item: ItemConfig(
         icon: const Icon(
           CupertinoIcons.camera,

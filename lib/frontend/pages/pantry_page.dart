@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_inspection/frontend/components/manual_add_food_bs.dart';
+import 'package:food_inspection/frontend/pages/camera_page.dart';
 
 class TrackerPage extends StatefulWidget {
   const TrackerPage({super.key});
@@ -10,6 +11,8 @@ class TrackerPage extends StatefulWidget {
 }
 
 class _TrackerPageState extends State<TrackerPage> {
+
+  //TODO: link this page to the pantry_list_item_model provider
 
   void _showAddItemDialog(BuildContext context) {
     showDialog(
@@ -78,7 +81,12 @@ class _TrackerPageState extends State<TrackerPage> {
                           endIndent: 0,
                         ),
                         GestureDetector(
-                          onTap: (){},
+                          onTap: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const CameraPage()),
+                            );
+                          },
                           child: const Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -121,7 +129,8 @@ class _TrackerPageState extends State<TrackerPage> {
                   // 'Tracking...',
                   'Pantry',
                   style: TextStyle(
-                    fontSize: 30.0,
+                    fontFamily: 'Lobster_Two',
+                    fontSize: 40.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

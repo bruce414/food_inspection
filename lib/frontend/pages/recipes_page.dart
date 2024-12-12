@@ -24,8 +24,9 @@ class _RecipesPageState extends State<RecipesPage> {
                   child: Text(
                     'Recipes',
                     style: TextStyle(
+                      fontFamily: 'Lobster_Two',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
+                      fontSize: 40.0,
                     ),
                   ),
                 ),

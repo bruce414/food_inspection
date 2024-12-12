@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ContentsSearchBar extends StatefulWidget {
@@ -8,52 +9,39 @@ class ContentsSearchBar extends StatefulWidget {
 }
 
 class _ContentsSearchBarState extends State<ContentsSearchBar> {
-
-  List foodItems = [
-    'rice',
-    'fish',
-    'cheese',
-    'steak',
-    'tomato',
-    'potato',
-    'apple',
-    'grapes'
-  ];
-
   @override
   Widget build(BuildContext context) {
-    return SearchAnchor(
-      builder: (BuildContext context,
-          SearchController homeStateSearchController) {
-        return SearchBar(
-          controller: homeStateSearchController,
-          onTap: () {
-            homeStateSearchController.openView();
-          },
-          onChanged: (_) {
-            homeStateSearchController.openView();
-          },
-          // padding: EdgeInsets.symmetric(horizontal: 16.0),
-          leading: const Icon(
-            Icons.search,
+    return GestureDetector(
+      onTap: () => TextField(
+
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
+        child: Container(
+          height: 50,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20.0),
+            color: const Color(0xFFEEEBEB),
           ),
-          hintText: 'Search Recipes',
-        );
-      },
-      suggestionsBuilder: (BuildContext context,
-          SearchController homeStateSearchController) {
-        return List<ListTile>.generate(5, (int index) {
-          final String item = 'item $index';
-          return ListTile(
-            title: Text(item),
-            onTap: () {
-              setState(() {
-                homeStateSearchController.closeView(item);
-              });
-            },
-          );
-        });
-      },
+          child: const Padding(
+            padding: EdgeInsets.only(left: 10.0),
+            child: Row(
+              children: [
+                Icon(
+                  CupertinoIcons.search,
+                ),
+                SizedBox(
+                  width: 20.0,
+                ),
+                Text(
+                  'Search Recipes',
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
+
